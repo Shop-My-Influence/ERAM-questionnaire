@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop My Influence — Questionnaire ERAM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Karla', Arial, sans-serif;
+  background: #F0F0F2;
+  min-height: 100vh;
+  padding: 0 0 60px;
+}
+
+/* HEADER */
+.header {
+  background: linear-gradient(135deg, #0D142C 0%, #1a2540 60%, #2d1f5e 100%);
+  padding: 40px 24px 50px;
+  text-align: center;
+  position: relative;
+}
+.header-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+.smi-logo { height: 84px; width: auto; }
+.separator {
+  width: 1px; height: 40px;
+  background: rgba(255,255,255,0.25);
+}
+.eram-logo-wrap {
+  background: white;
+  border-radius: 8px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+}
+.eram-logo-wrap svg { width: 90px; height: auto; }
+
+.header-eyebrow {
+  font-size: 0.72em;
+  font-weight: 700;
+  color: #CFC2F7;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 10px;
+}
+.header-title {
+  font-size: 1.9em;
+  font-weight: 900;
+  color: white;
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+.header-title span { color: #FF7131; }
+.header-sub {
+  font-size: 0.9em;
+  color: rgba(255,255,255,0.6);
+  font-weight: 500;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* WAVE */
+.wave {
+  display: block;
+  margin-top: -2px;
+}
+
+/* FORM WRAPPER */
+.form-wrapper {
+  max-width: 680px;
+  margin: -24px auto 0;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.form-card {
+  background: white;
+  border-radius: 16px;
+  padding: 36px 40px;
+  box-shadow: 0 4px 24px rgba(13,20,44,0.10);
+  margin-bottom: 16px;
+}
+
+.intro-text {
+  font-size: 0.9em;
+  color: #555;
+  line-height: 1.65;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 28px;
+}
+.intro-text strong { color: #0D142C; }
+
+/* QUESTION */
+.question {
+  margin-bottom: 28px;
+}
+.question:last-child { margin-bottom: 0; }
+
+.q-number {
+  display: inline-block;
+  background: #7B59F5;
+  color: white;
+  font-size: 0.65em;
+  font-weight: 900;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 22px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.q-label {
+  font-size: 0.95em;
+  font-weight: 800;
+  color: #0D142C;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.q-hint {
+  font-size: 0.75em;
+  color: #999;
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+textarea {
+  width: 100%;
+  border: 1.5px solid #E0DCFF;
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-family: 'Karla', Arial, sans-serif;
+  font-size: 0.9em;
+  color: #0D142C;
+  resize: vertical;
+  min-height: 100px;
+  transition: border-color 0.2s;
+  outline: none;
+  background: #FAFAFA;
+}
+textarea:focus {
+  border-color: #7B59F5;
+  background: white;
+}
+
+input[type="text"], input[type="email"] {
+  width: 100%;
+  border: 1.5px solid #E0DCFF;
+  border-radius: 10px;
+  padding: 13px 16px;
+  font-family: 'Karla', Arial, sans-serif;
+  font-size: 0.9em;
+  color: #0D142C;
+  outline: none;
+  background: #FAFAFA;
+  transition: border-color 0.2s;
+}
+input:focus {
+  border-color: #7B59F5;
+  background: white;
+}
+
+/* RADIO */
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border: 1.5px solid #E0DCFF;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.88em;
+  font-weight: 600;
+  color: #444;
+  transition: all 0.15s;
+  background: #FAFAFA;
+}
+.radio-option:hover {
+  border-color: #7B59F5;
+  background: #F5F2FF;
+  color: #0D142C;
+}
+.radio-option input { accent-color: #7B59F5; }
+
+/* SECTION DIVIDER */
+.section-label {
+  font-size: 0.65em;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #FF7131;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #FFE8DE;
+}
+
+/* SUBMIT */
+.submit-wrap {
+  text-align: center;
+  margin-top: 8px;
+}
+.btn-submit {
+  background: linear-gradient(135deg, #7B59F5, #B81CCB);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 16px 48px;
+  font-family: 'Karla', Arial, sans-serif;
+  font-size: 1em;
+  font-weight: 800;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: opacity 0.2s, transform 0.15s;
+}
+.btn-submit:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+.submit-note {
+  font-size: 0.72em;
+  color: #aaa;
+  margin-top: 10px;
+}
+
+/* SUCCESS */
+#success-msg {
+  display: none;
+  background: #E6F9F0;
+  border: 1.5px solid #1DA462;
+  border-radius: 12px;
+  padding: 20px 24px;
+  text-align: center;
+  font-size: 0.95em;
+  font-weight: 700;
+  color: #0D6E3F;
+  margin-top: 20px;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 32px 20px 0;
+  font-size: 0.7em;
+  color: #aaa;
+  font-weight: 600;
+}
+.footer img { height: 28px; margin-bottom: 8px; display: block; margin: 0 auto 8px; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-logos">
+    <img src="https://i.imgur.com/5Ao7FgV.png" alt="Shop My Influence" class="smi-logo">
+    <div class="separator"></div>
+    <div class="eram-logo-wrap"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgd2lkdGg9IjE1MHB4IiBoZWlnaHQ9IjU4cHgiIHZpZXdCb3g9IjAgMCAxNTAgNTgiIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQogIDxkZWZzPg0KICAgIDxwYXRoIGQ9Ik0wIDAuMjQ4NDE2TDM3LjQyNDIgMC4yNDg0MTZMMzcuNDI0MiAzNy40NjQ5TDAgMzcuNDY0OUwwIDAuMjQ4NDE2WiIgaWQ9InBhdGhfMSIgLz4NCiAgICA8cGF0aCBkPSJNMCAwTDM1LjgzNjYgMEwzNS44MzY2IDM1LjgzNDFMMCAzNS44MzQxTDAgMFoiIGlkPSJwYXRoXzIiIC8+DQogICAgPGNsaXBQYXRoIGlkPSJtYXNrXzEiPg0KICAgICAgPHVzZSB4bGluazpocmVmPSIjcGF0aF8xIiAvPg0KICAgIDwvY2xpcFBhdGg+DQogICAgPGNsaXBQYXRoIGlkPSJtYXNrXzIiPg0KICAgICAgPHVzZSB4bGluazpocmVmPSIjcGF0aF8yIiAvPg0KICAgIDwvY2xpcFBhdGg+DQogIDwvZGVmcz4NCiAgPGcgaWQ9IkxvZ28tZXJhbSI+DQogICAgPGcgaWQ9Ikdyb3VwLTMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMjAuMjU2NzA4KSI+DQogICAgICA8cGF0aCBkPSJNMCAwLjI0ODQxNkwzNy40MjQyIDAuMjQ4NDE2TDM3LjQyNDIgMzcuNDY0OUwwIDM3LjQ2NDlMMCAwLjI0ODQxNloiIGlkPSJDbGlwLTIiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSJub25lIiAvPg0KICAgICAgPGcgY2xpcC1wYXRoPSJ1cmwoI21hc2tfMSkiPg0KICAgICAgICA8cGF0aCBkPSJNMjMuOTI3NiAxNC45MTk4TDE3LjMzMSAxNC45MTk4TDE3LjMzMSAxMC41OTUzQzE3LjMzMSA3LjQ4OTQxIDE3LjU3ODkgNS40MDA5IDE4LjA3NjEgNC4zMjg4NUMxOC41NzE0IDMuMjU3NzMgMTkuNDI2MSAyLjcyNTEyIDIwLjY0NzggMi43MjUxMkMyMS44NjU1IDIuNzI1MTIgMjIuNzIwNSAzLjI0MDAzIDIzLjIwMjggNC4yNzc2MUMyMy42ODc1IDUuMzA5NiAyMy45Mjc2IDcuNDIwNDcgMjMuOTI3NiAxMC41OTUzTDIzLjkyNzYgMTQuOTE5OFpNMjAuNTc4MiAwLjI0ODQxNkMxOC4xODI5IDAuMjQ4NDE2IDE1Ljg2NTIgMC42MjM4ODIgMTMuNjIyMyAxLjM2OTUzQzExLjM3NyAyLjExODI5IDkuMzEyMDggMy4yMDM3IDcuNDIyNjQgNC42MzIyN0M1LjA5NzQ4IDYuMzgyNTggMy4yODEwMiA4LjUyMjk1IDEuOTY2NDMgMTEuMDU2NUMwLjY1ODA0NCAxMy41ODc1IC0zLjEwNTU5ZS0wNSAxNi4yMzE2IC0zLjEwNTU5ZS0wNSAxOC45OTU2Qy0zLjEwNTU5ZS0wNSAyNC4xMDI1IDIuMDA4OTggMjguNDU4NyA2LjAyOTQ3IDMyLjA2MjdDMTAuMDQyOCAzNS42NjMgMTQuOTk3OCAzNy40NjQ5IDIwLjg4NzUgMzcuNDY0OUMyNS4xOTI4IDM3LjQ2NDkgMjguNzQwNyAzNi4zMTg2IDMxLjU0IDM0LjAyODVDMzQuMzM0MSAzMS43Mzg1IDM2LjA3OTIgMjguNTQ0NCAzNi43Njc3IDI0LjQ0OTdMMzQuMDMxNiAyNC40NDk3QzMzLjYwODcgMjcuMTIyMyAzMi4zNjM2IDI5LjM5NTMgMzAuNjc4OSAzMS4yODFDMjkuOTIxNCAzMi4wNzMgMjcuMTEzIDM0LjYzNDggMjMuMTU0MyAzNC4xMjM2QzE5LjM3NzkgMzMuNjMzOCAxOC4xNTYyIDMwLjcwMTggMTcuNzM2NiAyOC4yNDk3QzE3LjUwOTkgMjYuNTU3NCAxNy40MDIxIDI0LjQ0OTcgMTcuNDAyMSAyMS44MjQyTDE3LjQwMjEgMTcuOTIzM0wzNy40MjQyIDE3LjkyMzNMMzcuNDI0MiAxNy4xNjM5QzM3LjQyNDIgMTIuMDM0NCAzNS44ODA3IDcuOTI5MTYgMzIuNzk3MiA0Ljg1NTI1QzI5LjcxNjQgMS43ODQ0NCAyNS42NCAwLjI0ODQxNiAyMC41NzgyIDAuMjQ4NDE2TDIwLjU3ODIgMC4yNDg0MTZaIiBpZD0iRmlsbC0xIiBmaWxsPSIjMTQxNDFDIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0ibm9uZSIgLz4NCiAgICAgIDwvZz4NCiAgICA8L2c+DQogICAgPHBhdGggZD0iTTEzNy40NzkgMjIuMDAwNEMxMzMuMzY5IDIyLjAwMDQgMTI5LjU1MSAyNC4wMDI2IDEyNy4yMTIgMjcuMzcwNkMxMjQuODkyIDI0LjA1MSAxMjAuOTg3IDIyLjAwMDQgMTE2Ljk0NyAyMi4wMDA0QzExNC4wMDYgMjIuMDAwNCAxMTEuMTgyIDIzLjAzMTUgMTA4Ljk0OSAyNC45MTQ3TDEwOC45NDkgMjIuNjc3MUwxMDQuNDc0IDIyLjY3NzFMMTA0LjQ3NCA1Ny4wMTI4TDEwOC45NDkgNTcuMDEyOEwxMDguOTQ5IDM0LjQxOTdDMTA4Ljk0OSAzMC4wMDkxIDExMi41MzcgMjYuNDE5MyAxMTYuOTQ3IDI2LjQxOTNDMTIxLjM4OCAyNi40MTkzIDEyNS4wMDIgMzAuMDMzMyAxMjUuMDAyIDM0LjQ3NDZMMTI1LjAwMiA1Ny4wMTI4TDEyOS40MjMgNTcuMDEyOEwxMjkuNDIzIDM0LjQxOTdDMTI5LjQyMyAzMC4wMDkxIDEzMy4wMzYgMjYuNDE5MyAxMzcuNDc5IDI2LjQxOTNDMTQxLjg4OSAyNi40MTkzIDE0NS40NzggMzAuMDMzMyAxNDUuNDc4IDM0LjQ3NDZMMTQ1LjQ3OCA1Ny4wMTI4TDE0OS45NTIgNTcuMDEyOEwxNDkuOTUyIDM0LjQxOTdDMTQ5Ljk1MiAyNy41NzIxIDE0NC4zNTcgMjIuMDAwNCAxMzcuNDc5IDIyLjAwMDQiIGlkPSJGaWxsLTQiIGZpbGw9IiMxNDE0MUMiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSJub25lIiAvPg0KICAgIDxnIGlkPSJHcm91cC04IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2MC40ODMxMzUgMjIuMDAwMjgpIj4NCiAgICAgIDxwYXRoIGQ9Ik0wIDBMMzUuODM2NiAwTDM1LjgzNjYgMzUuODM0MUwwIDM1LjgzNDFMMCAwWiIgaWQ9IkNsaXAtNyIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2U9Im5vbmUiIC8+DQogICAgICA8ZyBjbGlwLXBhdGg9InVybCgjbWFza18yKSI+DQogICAgICAgIDxwYXRoIGQ9Ik0xNy45NDkxIDMxLjQxNzRDMTAuNDg5NCAzMS40MTc0IDQuNDE5NTcgMjUuMzQ4OCA0LjQxOTU3IDE3Ljg5MjVDNC40MTk1NyAxMC40NjI0IDEwLjQ4OTQgNC40MTg5NCAxNy45NDkxIDQuNDE4OTRDMjUuMzc3IDQuNDE4OTQgMzEuNDE5MyAxMC40NjI0IDMxLjQxOTMgMTcuODkyNUMzMS40MTkzIDI1LjM0ODggMjUuMzc3IDMxLjQxNzQgMTcuOTQ5MSAzMS40MTc0TDE3Ljk0OTEgMzEuNDE3NFpNMzEuNDE5MyA2LjA5NTAzQzI4LjAyMDUgMi4yMTUyMiAyMy4xNDI1IDAgMTcuOTQ5MSAwQzguMDUyMTcgMCAwIDguMDI2NCAwIDE3Ljg5MjVDMCAyNy43ODUxIDguMDUyMTcgMzUuODM0MiAxNy45NDkxIDM1LjgzNDJDMjMuMTQxIDM1LjgzNDIgMjguMDIwNSAzMy42MjExIDMxLjQxOTMgMjkuNzM5NEwzMS40MTkzIDM1LjAxMjRMMzUuODM2NiAzNS4wMTI0TDM1LjgzNjYgMC42NzY3MDhMMzEuNDE5MyAwLjY3NjcwOEwzMS40MTkzIDYuMDk1MDNaIiBpZD0iRmlsbC02IiBmaWxsPSIjMTQxNDFDIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0ibm9uZSIgLz4NCiAgICAgIDwvZz4NCiAgICA8L2c+DQogICAgPHBhdGggZD0iTTQ4LjY3ODggMjYuNDUzMkw0OC42Nzg4IDIyLjY3NzFMNDQuMjA1NSAyMi42NzcxTDQ0LjIwNTUgNTcuMDEyOEw0OC42Nzg4IDU3LjAxMjhMNDguNjc4OCAzNy4xODI3QzQ4LjY3ODggMzEuMjMyIDUzLjIzNDMgMjYuNzEgNTkuNTEyMyAyNi40MzM5TDYwLjAwNzkgMjYuNDEwNkw2MC4wMDc5IDIyLjAwMDRMNTkuNDcxOSAyMi4wMTgxQzU1LjIyNjYgMjIuMTU2OSA1MS40MTY2IDIzLjcyNjggNDguNjc4OCAyNi40NTMyIiBpZD0iRmlsbC05IiBmaWxsPSIjMTQxNDFDIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0ibm9uZSIgLz4NCiAgICA8cGF0aCBkPSJNMzAuNTYwMyAwTDYuODkzMjYgMTMuMzE0TDYuODkzMjYgMTYuNTA1NkwzMC41NjAzIDkuMjI5ODFMMzAuNTYwMyAwWiIgaWQ9IkZpbGwtMTEiIGZpbGw9IiNGRkYyMDAiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSJub25lIiAvPg0KICA8L2c+DQo8L3N2Zz4=" alt="ERAM" style="height:40px; width:auto;"></div>
+  </div>
+  <div class="header-eyebrow">Témoignage client · 2026</div>
+  <div class="header-title">Quelques questions<br>pour <span>mieux vous connaître</span></div>
+  <div class="header-sub">Vos réponses nous aideront à construire un cas client qui vous représente fidèlement.</div>
+</div>
+
+<svg class="wave" viewBox="0 0 1440 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block; margin-top:-1px;">
+  <path d="M0,20 C360,40 1080,0 1440,20 L1440,40 L0,40 Z" fill="#F0F0F2"/>
+</svg>
+
+<!-- FORM -->
+<div class="form-wrapper">
+  <form id="smi-form" action="https://formspree.io/f/xppzqrqo" method="POST">
+
+    <!-- INFOS -->
+    <div class="form-card">
+      <div class="section-label">Vos informations</div>
+      <div class="question">
+        <div class="q-label">Votre prénom et nom</div>
+        <input type="text" name="nom" placeholder="Ex : Marie Dupont" required>
+      </div>
+      <div class="question">
+        <div class="q-label">Votre poste</div>
+        <input type="text" name="poste" placeholder="Ex : Responsable Marketing Digital">
+      </div>
+    </div>
+
+    <!-- STRATÉGIE -->
+    <div class="form-card">
+      <div class="section-label">Stratégie & vision</div>
+
+      <div class="question">
+        <div class="q-label"><span class="q-number">1</span>Pouvez-vous nous éclairer sur votre stratégie d'influence en 2026 ?</div>
+        <div class="q-hint">Objectifs, priorités, évolutions prévues…</div>
+        <textarea name="strategie_2026" placeholder="Votre réponse…"></textarea>
+      </div>
+
+      <div class="question">
+        <div class="q-label"><span class="q-number">2</span>Quels sont pour vous les avantages de l'influence à la performance par rapport à d'autres leviers d'acquisition ?</div>
+        <div class="q-hint">ROI, maîtrise des coûts, mesurabilité…</div>
+        <textarea name="avantages_perf" placeholder="Votre réponse…"></textarea>
+      </div>
+    </div>
+
+    <!-- COLLABORATION SMI -->
+    <div class="form-card">
+      <div class="section-label">Collaboration Shop My Influence</div>
+
+      <div class="question">
+        <div class="q-label"><span class="q-number">3</span>Êtes-vous satisfaite de la collaboration avec Shop My Influence ?</div>
+        <div class="radio-group">
+          <label class="radio-option"><input type="radio" name="satisfaction" value="Très satisfaite"> Très satisfaite</label>
+          <label class="radio-option"><input type="radio" name="satisfaction" value="Satisfaite"> Satisfaite</label>
+          <label class="radio-option"><input type="radio" name="satisfaction" value="Neutre"> Neutre</label>
+          <label class="radio-option"><input type="radio" name="satisfaction" value="Peu satisfaite"> Peu satisfaite</label>
+        </div>
+      </div>
+
+      <div class="question" style="margin-top:24px;">
+        <div class="q-label"><span class="q-number">4</span>Qu'est-ce qui vous a le plus surpris positivement dans l'utilisation de la plateforme ?</div>
+        <textarea name="surprise_positive" placeholder="Votre réponse…"></textarea>
+      </div>
+
+      <div class="question">
+        <div class="q-label"><span class="q-number">5</span>Comment utilisez-vous le tableau de bord Shop My Influence au quotidien ?</div>
+        <div class="q-hint">Fréquence, usages principaux, ce que vous consultez…</div>
+        <textarea name="dashboard_usage" placeholder="Votre réponse…"></textarea>
+      </div>
+    </div>
+
+    <!-- RECOMMANDATION -->
+    <div class="form-card">
+      <div class="section-label">Pour finir</div>
+
+      <div class="question">
+        <div class="q-label"><span class="q-number">6</span>Que diriez-vous à une marque qui hésiterait à se lancer dans l'influence à la performance ?</div>
+        <div class="q-hint">Cette réponse pourrait figurer dans notre cas client — n'hésitez pas à être directe !</div>
+        <textarea name="recommandation" placeholder="Votre réponse…" style="min-height:120px;"></textarea>
+      </div>
+    </div>
+
+    <div class="submit-wrap">
+      <button type="submit" class="btn-submit">Envoyer mes réponses</button>
+      <div class="submit-note">Vos réponses sont confidentielles et utilisées uniquement dans le cadre de notre partenariat.</div>
+    </div>
+
+    <div id="success-msg">
+      ✅ Merci ! Vos réponses ont bien été transmises à l'équipe Shop My Influence.
+    </div>
+
+  </form>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <img src="https://i.imgur.com/AEYc1MW.png" alt="Shop My Influence">
+  © 2026 Shop My Influence — Influence. Performance.
+</div>
+
+<script>
+document.getElementById('smi-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const data = new FormData(form);
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      form.style.display = 'none';
+      document.getElementById('success-msg').style.display = 'block';
+    }
+  } catch(err) {
+    alert('Une erreur est survenue. Merci de réessayer.');
+  }
+});
+</script>
+
+</body>
+</html>
